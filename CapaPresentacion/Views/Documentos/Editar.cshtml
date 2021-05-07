@@ -1,0 +1,52 @@
+﻿@model CapaEntidad.Documentos
+@using CapaNegocio;
+
+@{
+    ViewBag.Title = "Editar";
+
+    NegocioDocumentos negocio = new NegocioDocumentos();
+
+    var departamentos = negocio.MostrarDepartamentos();
+    SelectList listaDepartamentos = new SelectList(departamentos, "Nombre", "Nombre");
+    ViewBag.NombreDepartamentos = listaDepartamentos;
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Documentos</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2", @placeholder = "Identifique el documento ha editar" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Departamento destino", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DepartamentoDestino, ViewBag.NombreDepartamentos as SelectList, "Seleccione nuevo departamento destino", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DepartamentoDestino, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Editar documento" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver al reporte de documentos", "Index")
+</div>

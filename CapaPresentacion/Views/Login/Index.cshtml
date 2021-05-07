@@ -1,0 +1,101 @@
+﻿@model CapaEntidad.Usuarios
+@using CapaNegocio;
+
+@{
+    ViewBag.Title = "Index";
+
+    @*LISTA DE CARGOS*@
+    List<SelectListItem> listaCargo = new List<SelectListItem>();
+    listaCargo.Add(new SelectListItem() { Text = "Operativo", Value = "Operativo" });
+    listaCargo.Add(new SelectListItem() { Text = "Admnistrativo", Value = "Administrativo" });
+    listaCargo.Add(new SelectListItem() { Text = "Gerencial", Value = "Gerencial" });
+
+    @*LISTA DE DEPARTAMENTOS*@
+    NegocioDocumentos negocio = new NegocioDocumentos();
+    var departamentos = negocio.MostrarDepartamentos();
+    SelectList listaDepartamentos = new SelectList(departamentos, "Nombre", "Nombre");
+    ViewBag.NombreDepartamentos = listaDepartamentos;
+}
+
+<link href="~/assets/css/Login.css" rel="stylesheet" />
+<section class="user">
+    <div class="user_options-container">
+        <div class="user_options-text">
+            <div class="user_options-unregistered">
+                <h2 class="user_unregistered-title">Aun no estas registrado?</h2>
+                <p class="user_unregistered-text">Registrese antes de iniciar sesion.</p>
+                <button class="user_unregistered-signup" id="signup-button">Registrarme</button>
+            </div>
+
+            <div class="user_options-registered">
+                <h2 class="user_registered-title">Tienes una cuenta?</h2>
+                <p class="user_registered-text">Inicia sesion para acceder a las funcionalidades.</p>
+                <button class="user_registered-login" id="login-button">Iniciar Sesion</button>
+            </div>
+        </div>
+
+        <div class="user_options-forms" id="user_options-forms">
+            <div class="user_forms-login">
+                <h2 class="forms_title">Login</h2>
+                @using (Html.BeginForm("LogearUsuario", "Login"))
+                {
+                    @Html.AntiForgeryToken()
+                    <form class="forms_form">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <fieldset class="forms_fieldset">
+                            <div class="forms_field">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control forms_field-input", @placeholder = "Correo" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="forms_field">
+                                @Html.EditorFor(model => model.Contraseña, new { htmlAttributes = new { @class = "form-control forms_field-input", @placeholder = "Contraseña" } })
+                                @Html.ValidationMessageFor(model => model.Contraseña, "", new { @class = "text-danger" })
+                            </div>
+                        </fieldset>
+                        <div class="forms_buttons">
+                            <input type="submit" value="Iniciar Sesion" class="forms_buttons-action">
+                        </div>
+                    </form>
+                }
+            </div>
+            <div class="user_forms-signup">
+                <h2 class="forms_title">Sign Up</h2>
+                @using (Html.BeginForm("RegistrarUsuario", "Login"))
+                {
+                    @Html.AntiForgeryToken()
+                    <form class="forms_form">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <fieldset class="forms_fieldset">
+                            <div class="forms_field">
+                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control forms_field-input", @placeholder = "Nombre" } })
+                                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="forms_field">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control forms_field-input", @placeholder = "Correo" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="forms_field">
+                                @Html.DropDownListFor(model => model.Departamento, ViewBag.NombreDepartamentos as SelectList, "Departamentos", new { @class = "form-control form_field-input" })
+                                @Html.ValidationMessageFor(model => model.Departamento, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="forms_field">
+                                @Html.DropDownListFor(model => model.Cargo, listaCargo, "Cargos", new { @class = "form-control form_field-input" })
+                                @Html.ValidationMessageFor(model => model.Cargo, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="forms_field">
+                                @Html.EditorFor(model => model.Contraseña, new { htmlAttributes = new { @class = "form-control forms_field-input", @placeholder = "Contraseña" } })
+                                @Html.ValidationMessageFor(model => model.Contraseña, "", new { @class = "text-danger" })
+                            </div>
+                        </fieldset>
+                        <div class="forms_buttons">
+                            <input type="submit" value="Registrarme" class="forms_buttons-action">
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/assets/js/Login.js"></script>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CapaEntidad.Departamentos>
+
+@{
+    ViewBag.Title = "Reporte de departamentos";
+}
+
+<h2>Departamentos registrados</h2>
+
+<div class="form-group">
+    <input type="text" class="form-control pull-right" style="width:20%" id="buscar" placeholder="Nombre del departamento...">
+</div>
+
+<table class="table" id="Lista">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Siglas)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Siglas)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Nombre })
+            </td>
+        </tr>
+    }
+</table>

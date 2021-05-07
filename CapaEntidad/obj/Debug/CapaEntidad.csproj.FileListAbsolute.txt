@@ -1,0 +1,12 @@
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\bin\Debug\CapaEntidad.dll.config
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\bin\Debug\EntityFramework.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\bin\Debug\EntityFramework.xml
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\obj\Debug\CapaEntidad.csproj.CopyComplete
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaEntidad\obj\Debug\CapaEntidad.csprojAssemblyReference.cache

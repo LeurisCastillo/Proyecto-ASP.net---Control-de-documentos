@@ -1,0 +1,71 @@
+﻿@model CapaEntidad.Documentos
+    @using CapaNegocio;
+
+@{
+    ViewBag.Title = "Crear documento";
+
+    NegocioDocumentos negocio = new NegocioDocumentos();
+    var usuarios = negocio.MostrarUsuarios();
+    SelectList listaUsuarios = new SelectList(usuarios, "Nombre", "Nombre");
+    ViewBag.NombreUsuarios = listaUsuarios;
+
+    var departamentos = negocio.MostrarDepartamentos();
+    SelectList listaDepartamentos = new SelectList(departamentos, "Nombre", "Nombre");
+    ViewBag.NombreDepartamentos = listaDepartamentos;
+}
+
+<h2>Documento</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Nombre del documento", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Nombre del usuario", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NombreUsuario, ViewBag.NombreUsuarios as SelectList, "Usuarios activos", new { @class ="form-control"})
+                @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Departamento de origen", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DepartamentoOrigen, ViewBag.NombreDepartamentos as SelectList, "Seleccione departamento de origen", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DepartamentoOrigen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Departamento destino", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DepartamentoDestino, ViewBag.NombreDepartamentos as SelectList, "Seleccione departamento destino", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DepartamentoDestino, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Fecha de creacion", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FechaCreacion, new { htmlAttributes = new { @class = "form-control", @placeholder = "dd/mm/yyyy" } })
+                @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear Documento" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

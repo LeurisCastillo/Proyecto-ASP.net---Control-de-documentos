@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CapaEntidad.spFiltra_Fecha_Result>
+
+@{
+    ViewBag.Title = "DocumentosFitrados";
+}
+
+<h2>DocumentosFitrados</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartamentoOrigen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartamentoDestino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Secuencia)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoOrigen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoDestino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Secuencia)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,15 @@
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\CapaServicios.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\CapaServicios.pdb
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\CapaDatos.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\CapaEntidad.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\EntityFramework.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\CapaDatos.pdb
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\CapaDatos.dll.config
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\CapaEntidad.pdb
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\CapaEntidad.dll.config
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\bin\Debug\EntityFramework.xml
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\obj\Debug\CapaServicios.csprojAssemblyReference.cache
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\obj\Debug\CapaServicios.csproj.CoreCompileInputs.cache
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\obj\Debug\CapaServicios.csproj.CopyComplete
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\obj\Debug\CapaServicios.dll
+C:\Users\leuri\source\repos\CONTROL DE DOCUMENTOS\CapaServicios\obj\Debug\CapaServicios.pdb
